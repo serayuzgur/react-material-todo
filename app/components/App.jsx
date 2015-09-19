@@ -1,31 +1,28 @@
 import uuid from 'node-uuid';
 import 'core-js/fn/array/find-index';
-
-
 import React from 'react';
-import Alert from './Alert';
+
 
 import Notes from './Notes';
 import NoteStore from '../stores/NodeStore.js';
 import NoteActions from '../actions/NoteActions.js';
 
-import theme from '../decorators/theme';
 import connectToStores from 'alt/utils/connectToStores';
 
-import RaisedButton from 'material-ui/lib/raised-button';
-import FlatButton from 'material-ui/lib/flat-button';
-
+//Import material-ui components
 import AppBar from 'material-ui/lib/app-bar';
 import LeftNav from 'material-ui/lib/left-nav';
 import MenuItem from 'material-ui/lib/menu/menu-item';
-
-
+import RaisedButton from 'material-ui/lib/raised-button';
+import FlatButton from 'material-ui/lib/flat-button';
 import Dialog from 'material-ui/lib/dialog';
 import Colors from 'material-ui/lib/styles/colors';
 
+//Set the theme of theme manager. It is not nice to use it but material-ui has compability issues with ES6.
 let ThemeManager = new (require('material-ui/lib/styles/theme-manager'))();
 ThemeManager.setTheme(ThemeManager.types.LIGHT);
 
+//App is the default application component. It will render header and notes.
 @connectToStores
 export default class App extends React.Component {
 
@@ -83,7 +80,4 @@ export default class App extends React.Component {
       NoteActions.delete(id);
     }
 	}
-}
-App.childContextTypes = {
-      muiTheme: React.PropTypes.object
 }

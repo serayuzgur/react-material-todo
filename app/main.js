@@ -7,8 +7,8 @@ import persist from './libs/persist';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 
-// Starts the program, as C,JAVA, e.t.c
-// Creates the application 
+// Starts the program, as C,JAVA, etc.
+// Creates the application
 main();
 
 function main() {
@@ -16,9 +16,9 @@ function main() {
   //Initialize all decorators.
   persist(alt, storage, 'app');
 
-  //Start plugin.
+  //Start plugin. It is needed by material-ui
   injectTapEventPlugin();
-  
+
   // Create a default container for app. Render it.
   const app = document.createElement('div');
   document.body.appendChild(app);
